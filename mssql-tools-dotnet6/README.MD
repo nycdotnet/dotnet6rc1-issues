@@ -1,16 +1,16 @@
 # Issue:
 
-The `mssql-tools` package used to install on the .NET 5 SDK image without needing `unixodbc` to be installed first.  With the .NET 6 RC1 SDK image, we need to install `unixodbc` first.  This is a very minor change in practice, but would be nice to not have to do this across all of our repos.
+The `mssql-tools` package will install on the .NET 5.0 SDK Docker image without needing `unixodbc` to be installed first.  With the .NET 6.0 RC1 SDK image, we need to install `unixodbc` first.  This is a very minor change in practice, but would be nice to not have to do this across all of our repos.
 
 ## Repro:
 
-This folder contains a working Dockerfile that builds with the .NET 5 SDK image.
+This folder contains a working Dockerfile that builds with the .NET 5.0 SDK image.  Run this:
 
 `docker build .`
 
 This will pull down the appropriate stuff including the mssql-tools.
 
-`docker run <imagehash>` should then show the BCP version (17.8.0001.1 or higher)
+`docker run <imagehash>` should then show the .NET 5 version and BCP version (17.8.0001.1 or higher)
 
 Now edit the Dockerfile to use the .NET 6.0 SDK image instead of .NET 5.0 SDK.
 
