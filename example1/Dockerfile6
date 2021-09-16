@@ -8,3 +8,5 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
 
 RUN apt-get update && \
   ACCEPT_EULA=Y apt-get install -y mssql-tools
+
+CMD /opt/mssql-tools/bin/bcp -v
